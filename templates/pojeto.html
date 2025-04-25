@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ projeto.nome }}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+  <h1 class="text-2xl font-bold">{{ projeto.nome }}</h1>
+  <p class="text-gray-600">{{ projeto.descricao }}</p>
+
+  <h2 class="mt-6 text-xl font-semibold">Tarefas</h2>
+  <form method="POST" action="{{ url_for('adicionar_tarefa', id_projeto=projeto.id) }}" class="flex gap-2 mt-4">
+    <input name="titulo" placeholder="Título" class="p-2 border rounded w-1/4" required>
+    <input name="descricao" placeholder="Descrição" class="p-2 border rounded w-1/2" required>
+    <select name="status" class="p-2 border rounded">
+      <option value="Pendente">Pendente</option>
+      <option value="Em andamento">Em andamento</option>
+      <option value="Concluída">Concluída</option>
+    </select>
+    <button class="bg-blue-500 text-white px-4 rounded">Adicionar</button>
+  </form>
+
+  <ul class="mt-6 space-y-2">
+    {% for tarefa in tarefas %}
+    <li class="bg-white p-4 rounded shadow flex justify-between">
+      <div>
+        <h3 class="font-bold">{{ tarefa.titulo }} ({{ tarefa.status }})</h3>
+        <p class="text-sm text-gray-600">{{ tarefa.descricao }}</p>
+      </div>
+      <div class="space-x-2">
+        <a href="{{ url_for('editar_tarefa', id=tarefa.id) }}" class="text-yellow-600">Editar</a>
+        <a href="{{ url_for('remover_tarefa', id=tarefa.id) }}" class="text-red-600">Excluir</a>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

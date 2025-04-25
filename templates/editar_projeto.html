@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Projeto</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-6 bg-gray-100">
+  <h1 class="text-2xl font-bold mb-4">Editar Projeto</h1>
+  <form method="POST" class="space-y-4">
+    <input name="nome" value="{{ projeto.nome }}" class="block w-full p-2 border rounded" required>
+    <textarea name="descricao" class="block w-full p-2 border rounded" required>{{ projeto.descricao }}</textarea>
+    <button class="bg-yellow-500 text-white px-4 py-2 rounded">Atualizar</button>
+  </form>
+</body>
+</html>
