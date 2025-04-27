@@ -1,1 +1,3 @@
 id,nome,descricao,data_criacao,imagem
+1,Desenvolvimento do Front-End,"Criação da interface do usuário utilizando React, garantindo responsividade e uma experiência fluída para desktop e mobile.",26/04/2025,1_01.png
+2, Implementação do Sistema de Pagamento,"Integração de métodos de pagamento como cartão de crédito, Pix e boleto bancário, utilizando a API do Stripe.",26/04/2025,2_02.png

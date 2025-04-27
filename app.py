@@ -61,7 +61,7 @@ def criar_projeto():
             'id': id_proj,
             'nome': request.form['nome'],
             'descricao': request.form['descricao'],
-            'data_criacao': datetime.today().strftime('%Y-%m-%d'),
+            'data_criacao': datetime.now().strftime('%d/%m/%Y'),
             'imagem': nome_arquivo
         }
         projetos.append(projeto)
