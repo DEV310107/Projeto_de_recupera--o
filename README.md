@@ -107,19 +107,18 @@ README.md
 
 ## 📸 Imagens do Projeto
 
-> Adicione aqui prints do sistema funcionando:
-> 
+
 - Tela inicial com projetos
     
-    ![image.png](attachment:1de26e43-2a1b-4d34-a4a2-58b762fa1520:image.png)
+    ![image.png](static/imgs_documentação/menu.png)
     
 - Formulário de criação de projeto
     
-    ![image.png](attachment:92a926d5-5aa6-4a24-9291-8d541e9e3db3:image.png)
+    ![image.png](static/imgs_documentação/criar_projeto.png)
     
 - Visualização do projeto com tarefas
     
-    ![image.png](attachment:fc2a9193-9a15-4364-95a2-0320a09d8da7:image.png)
+    ![image.png](static/imgs_documentação/ver.png)
     
 
 ---
