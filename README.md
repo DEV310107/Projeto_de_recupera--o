@@ -28,12 +28,6 @@ git clone https://github.com/seu-usuario/nome-do-repositorio.git
 cd nome-do-repositorio
 ```
 
-### 2. Crie o ambiente virtual
-
-```bash
-python -m venv venv
-```
-
 ### 3. Ative o ambiente virtual
 
 - Windows:
