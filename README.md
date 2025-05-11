@@ -28,12 +28,6 @@ git clone https://github.com/seu-usuario/nome-do-repositorio.git
 cd nome-do-repositorio
 ```
 
-### 2. Crie o ambiente virtual
-
-```bash
-python -m venv venv
-```
-
 ### 3. Ative o ambiente virtual
 
 - Windows:
@@ -48,12 +42,6 @@ python -m venv venv
     source venv/bin/activate
     ```
     
-
-### 4. Instale o flask
-
-```bash
-pip install flask
-```
 
 ### 5. Execute a aplicação
 
