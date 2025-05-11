@@ -1,4 +1,3 @@
-# app.py
 from flask import Flask, render_template, request, redirect, url_for
 import csv
 import os
@@ -8,14 +7,12 @@ app = Flask(__name__)
 UPLOAD_FOLDER = 'static/img'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# Utils para CSV
 PROJETOS_CSV = 'projetos.csv'
 TAREFAS_CSV = 'tarefas.csv'
 
 CAMPOS_PROJETO = ['id', 'nome', 'descricao', 'data_criacao', 'imagem']
 CAMPOS_TAREFA = ['id', 'id_projeto', 'titulo', 'descricao', 'status']
 
-# Funções auxiliares
 
 def ler_csv(caminho, campos):
     if not os.path.exists(caminho):
@@ -34,7 +31,7 @@ def salvar_csv(caminho, dados, campos):
 def gerar_id(lista):
     return str(max([int(i['id']) for i in lista], default=0) + 1)
 
-# Rotas
+
 @app.route('/')
 def index():
     projetos = ler_csv(PROJETOS_CSV, CAMPOS_PROJETO)
