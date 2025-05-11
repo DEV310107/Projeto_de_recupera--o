@@ -43,12 +43,6 @@ cd nome-do-repositorio
     ```
     
 
-### 4. Instale o flask
-
-```bash
-pip install flask
-```
-
 ### 5. Execute a aplicação
 
 ```bash
