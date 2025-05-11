@@ -13,7 +13,6 @@ TAREFAS_CSV = 'tarefas.csv'
 CAMPOS_PROJETO = ['id', 'nome', 'descricao', 'data_criacao', 'imagem']
 CAMPOS_TAREFA = ['id', 'id_projeto', 'titulo', 'descricao', 'status']
 
-
 def ler_csv(caminho, campos):
     if not os.path.exists(caminho):
         with open(caminho, 'w', newline='') as f:
@@ -31,7 +30,6 @@ def salvar_csv(caminho, dados, campos):
 def gerar_id(lista):
     return str(max([int(i['id']) for i in lista], default=0) + 1)
 
-
 @app.route('/')
 def index():
     projetos = ler_csv(PROJETOS_CSV, CAMPOS_PROJETO)
@@ -41,7 +39,11 @@ def index():
 def ver_projeto(id):
     projetos = ler_csv(PROJETOS_CSV, CAMPOS_PROJETO)
     tarefas = ler_csv(TAREFAS_CSV, CAMPOS_TAREFA)
-    projeto = next((p for p in projetos if p['id'] == id), None)
+    projeto = None
+    for p in projetos:
+        if p['id'] == id:
+            projeto = p
+            break
     tarefas_projeto = [t for t in tarefas if t['id_projeto'] == id]
     return render_template('projeto.html', projeto=projeto, tarefas=tarefas_projeto)
 
@@ -69,7 +71,11 @@ def criar_projeto():
 @app.route('/editar_projeto/<id>', methods=['GET', 'POST'])
 def editar_projeto(id):
     projetos = ler_csv(PROJETOS_CSV, CAMPOS_PROJETO)
-    projeto = next((p for p in projetos if p['id'] == id), None)
+    projeto = None
+    for p in projetos:
+        if p['id'] == id:
+            projeto = p
+            break
     if request.method == 'POST':
         projeto['nome'] = request.form['nome']
         projeto['descricao'] = request.form['descricao']
@@ -105,7 +111,11 @@ def adicionar_tarefa(id_projeto):
 @app.route('/editar_tarefa/<id>', methods=['GET', 'POST'])
 def editar_tarefa(id):
     tarefas = ler_csv(TAREFAS_CSV, CAMPOS_TAREFA)
-    tarefa = next((t for t in tarefas if t['id'] == id), None)
+    tarefa = None
+    for t in tarefas:
+        if t['id'] == id:
+            tarefa = t
+            break
     if request.method == 'POST':
         tarefa['titulo'] = request.form['titulo']
         tarefa['descricao'] = request.form['descricao']
@@ -117,7 +127,11 @@ def editar_tarefa(id):
 @app.route('/remover_tarefa/<id>')
 def remover_tarefa(id):
     tarefas = ler_csv(TAREFAS_CSV, CAMPOS_TAREFA)
-    tarefa = next((t for t in tarefas if t['id'] == id), None)
+    tarefa = None
+    for t in tarefas:
+        if t['id'] == id:
+            tarefa = t
+            break
     if tarefa:
         tarefas = [t for t in tarefas if t['id'] != id]
         salvar_csv(TAREFAS_CSV, tarefas, CAMPOS_TAREFA)
